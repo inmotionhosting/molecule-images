@@ -4,8 +4,8 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install --no-install-recommends -y \
         openssh-client \
         openssh-server \
-        python3 \
-        python3-pip \
+        python \
+        python-pip \
         sudo \
 	systemd && \
     apt-get autoremove -y && \
