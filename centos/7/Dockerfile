@@ -1,18 +1,10 @@
-FROM centos:7
+FROM centos:7 AS base
 
-RUN yum update -y && \
-    yum install -y \
-        hostname \
-        openssh \
-        openssh-server \
-        python3 \
-        python3-pip \
-        sudo \
-        which && \
+RUN yum install -y hostname openssh openssh-server python3 sudo which && \
     yum autoremove -y && \
-    yum clean all && \
-    rm -rf \
-        /lib/systemd/system/{*getty*,systemd*udev*} && \
+    yum clean all
+
+RUN rm -rf /lib/systemd/system/{*getty*,systemd*udev*} && \
     cp /bin/true /usr/sbin/agetty && \
     echo "Defaults !requiretty" >> /etc/sudoers
 
