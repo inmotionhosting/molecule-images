@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     openssh-client openssh-server python3 sudo systemd && \
